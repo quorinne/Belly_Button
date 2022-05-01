@@ -8,27 +8,26 @@ function buildCharts(sample) {
     var samples = data.samples;
 
     // Create a variable that filters the samples for the object with the desired sample number.
-    var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
+    var sampleArray = samples.filter(sampleObj => sampleObj.id == sample);
 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
     var metadata = data.metadata;
-    var metaArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var sampleArray = metadata.filter(sampleObj => sampleObj.id == sample);
 
     // Create a variable that holds the first sample in the array.
     var result = sampleArray[0];
 
 
-    // 2. Create a variable that holds the first sample in the metadata array.
-     var result1 = metaArray[0];
-
+   // 2. Create a variable that holds the first sample in the metadata array.
+    var result = sampleArray[0];
     // Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids
     var otu_labels = result.otu_labels
     var sample_values = result.sample_values;
 
 
-    // 3. Create a variable that holds the washing frequency.
-    var washing = parseFloat(result1.wfreq)
+   // 3. Create a variable that holds the washing frequency.  
+    var washing = parseFloat(result.wfreq)
 
     // Create the yticks for the bar chart.
     var yticks = otu_ids.slice(0,10).map(id => `OTU ${id}`).reverse();
