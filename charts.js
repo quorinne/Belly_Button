@@ -74,14 +74,11 @@ function buildCharts(sample) {
     var otu_labels = result.otu_labels;
     var sample_values = result.sample_values;
 
-
-
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
     var yticks =  otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
-    
 
     // 8. Create the trace for the bar chart. 
     var barData = [
@@ -139,9 +136,7 @@ function buildCharts(sample) {
  
 // 3. Create a variable that holds the washing frequency.  
   var washing = parseFloat(result.wfreq)
-    
-
-
+ 
     var gaugeData = [
       {
         domain: { x: [0, 1], y: [0, 1] },
@@ -163,7 +158,6 @@ function buildCharts(sample) {
     ];
     
     var gaugeLayout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-  
   
       // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge",gaugeData,gaugeLayout);
